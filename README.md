@@ -9,5 +9,6 @@ If the py file is kept on the same directory as the geojson, every time the scri
 
 
 IMPORTANT
+
 I have no affiliation with IPMA, this is just a useful script I built for myself.
-If you use this script, please make sure to read and follow the IPMA API Terms of Service.
+If you use this script, please make sure to read and follow the IPMA API Terms of Service on http://api.ipma.pt/#about.
