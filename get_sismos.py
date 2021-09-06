@@ -1,10 +1,13 @@
 import requests
 import json
+import pathlib;
 
 try:
 
     req = requests.get('https://api.ipma.pt/open-data/observation/seismic/7.json')
     
+    current_dir = pathlib.Path(__file__).parent.resolve()
+
     lista_sismos_nova = json.loads(req.text)['data']
     
     lista_geojson = [{
@@ -38,7 +41,7 @@ try:
     lista_nova = lista_geojson_nova
     
     try:
-        with open('sismos.geojson', 'r') as in_file:
+        with open(f'{current_dir}/sismos.geojson', 'r') as in_file:
             ficheiro_local = json.load(in_file)
             last_date = ficheiro_local['features'][-1]['properties']['time']
         
@@ -48,7 +51,7 @@ try:
     except IOError:
         print('ioerror')
     
-    with open('sismos.geojson', 'w') as out_file:
+    with open(f'{current_dir}/sismos.geojson', 'w') as out_file:
         
         geojson = {
             "type": "FeatureCollection",
